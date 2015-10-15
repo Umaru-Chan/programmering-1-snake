@@ -11,6 +11,8 @@ import java.util.Random;
  *
  * buggar :
  * övre delen av skärmen blinkar (simpleWindows fel).
+ *
+ * buggtestare : Fredrik Eriksson
  */
 public class SimpleSpel {
 	public static void main(String[] args) {
@@ -252,16 +254,16 @@ public class SimpleSpel {
 			w.lineTo(apple.getX() + apple.getSide(), apple.getY() + apple.getSide() / 2);
 
 			//visa score
-			//w.setLineColor(Color.YELLOW);
-			//w.moveTo(15, 15);
-			//w.writeText("score : " + score);
+			w.setLineColor(Color.YELLOW);
+			w.moveTo(15, 15);
+			w.writeText("score : " + score);
 
 			//vänta för input och delaya 100 ms
 			w.waitForEvent();
 		}
 	}
 
-	/** returnerar true om de 2 kvadraterna nuddar varandra */
+	/** returnerar true om de 2 kvadraterna i fråga nuddar varandra */
 	static boolean interSects(SquareMod sq1, SquareMod sq2) {
 		if ((sq1.getX() >= sq2.getX() || sq1.getX() + sq1.getSide() >= sq2.getX()) &&
 				(sq1.getX() <= sq2.getX() + sq2.getSide() ||
