@@ -71,6 +71,8 @@ public class StringBuilderÖvning {
         for(int i = 0; i < str.length(); i++)
             if(str.charAt(i) != ' ')
                 result.append(Character.toChars(str.charAt(i) + n));
+            else
+                result.append(' ');
 
         System.out.println(result);
     }
