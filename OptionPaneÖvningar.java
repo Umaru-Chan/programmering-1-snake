@@ -46,7 +46,7 @@ public class OptionPaneÖvningar {
             ans = JOptionPane.showOptionDialog(null,
                     "Vilken av dessa renderingsmetoder kan java INTE använda?",
                     "En bra fråga",
-                    JOptionPane.PLAIN_MESSAGE,  //ingen aning om vad argumentet hät gör
+                    JOptionPane.PLAIN_MESSAGE,  //ingen aning om vad argumentet här gör
                     JOptionPane.PLAIN_MESSAGE,  //ingen aning om vad argumentet här gör
                     img, options, 0);
             if(JOptionPane.showConfirmDialog(null, "är du säker på ditt svar?") == JOptionPane.YES_OPTION)
