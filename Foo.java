@@ -16,6 +16,10 @@ public class Foo {
             try{
                 playSound("DIN_FIL.LMAO");
                 Thread.sleep(1500);
+                playSound("EN_ANNAN.LMAO");
+                Thread.sleep(1500);
+                playSound("ENNU_EN_ANNAN.LMAO");
+                Thread.sleep(1500);
             }catch(Exception e){e.printStackTrace();}
         }
     }
