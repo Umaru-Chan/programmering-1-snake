@@ -5,7 +5,6 @@ import  java.io.*;
 import  sun.audio.*;
 
 public class Foo {
-
     public static void main(String[]args){
         loop();
     }
@@ -15,15 +14,15 @@ public class Foo {
         while(true)
         {
             try{
-                playSound();
+                playSound("DIN_FIL.LMAO");
                 Thread.sleep(1500);
             }catch(Exception e){e.printStackTrace();}
         }
     }
 
-    static void playSound() throws Exception
+    static void playSound(String path) throws Exception
     {
-        InputStream in = new FileInputStream("DIN_FIl.LMAO");
+        InputStream in = new FileInputStream(path);
         AudioStream as = new AudioStream(in);
         AudioPlayer.player.start(as);
     }
