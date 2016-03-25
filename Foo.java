@@ -5,6 +5,9 @@ import  java.io.*;
 import  sun.audio.*;
 
 public class Foo {
+
+    static AudioStream as;
+
     public static void main(String[]args){
         loop();
     }
@@ -14,12 +17,16 @@ public class Foo {
         while(true)
         {
             try{
-                playSound("DIN_FIL.LMAO");
-                Thread.sleep(1500);
-                playSound("EN_ANNAN.LMAO");
-                Thread.sleep(1500);
-                playSound("ENNU_EN_ANNAN.LMAO");
-                Thread.sleep(1500);
+                playSound("res/wellcome.wav");
+                Thread.sleep(500);
+                playSound("res/wellcome.wav");
+                Thread.sleep(500);
+                playSound("res/wellcome.wav");
+                Thread.sleep(500);
+
+                stopSound();
+                break;
+
             }catch(Exception e){e.printStackTrace();}
         }
     }
@@ -27,7 +34,12 @@ public class Foo {
     static void playSound(String path) throws Exception
     {
         InputStream in = new FileInputStream(path);
-        AudioStream as = new AudioStream(in);
+        as = new AudioStream(in);
         AudioPlayer.player.start(as);
+    }
+
+    static void stopSound()
+    {
+        AudioPlayer.player.stop(as);
     }
 }
