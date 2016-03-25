@@ -93,33 +93,32 @@ public class Test {
  
         // Set the clear color
         //glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
- 
+        
         // Run the rendering loop until the user has attempted to close
         // the window or has pressed the ESCAPE key.
         
         while ( glfwWindowShouldClose(window) == GLFW_FALSE ) {
         	pos+=0.01;
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
-
+        	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
+        	
             glBegin(GL_TRIANGLES);
             
-            glColor3f(1.0f, 0.0f ,1.0f); 
-            glVertex2f( (float)Math.cos(pos), 1.0f);
+            glColor3f(0.5f, (float)-Math.cos(pos), (float)Math.cos(pos)); 
+            glVertex2f((float)Math.cos(pos), 1.0f);
             
-            glColor3f(0.0f,1.0f,0.0f); 
-            glVertex2f(-1.0f,-1.0f); 
+            glColor3f(0.0f, 1.0f, 0.0f); 
+            glVertex2f(-1.0f, -1.0f); 
             
-            glColor3f(0.0f,0.0f,1.0f);
-            glVertex2f( 1.0f,-1.0f); 
+            glColor3f(0.0f, 0.0f, 1.0f);
+            glVertex2f(1.0f, -1.0f);
             
             glEnd();
             
             glfwSwapBuffers(window); // swap the color buffers
- 
+            
             // Poll for window events. The key callback above will only be
             // invoked during this call.
-            glfwPollEvents();
-            
+            glfwPollEvents();            
         }
     }
 }
