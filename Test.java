@@ -81,8 +81,9 @@ public class Test {
         // Make the window visible
         glfwShowWindow(window);
     }
- 
+    float pos = 0.0f;
     private void loop() {
+    	
         // This line is critical for LWJGL's interoperation with GLFW's
         // OpenGL context, or any context that is managed externally.
         // LWJGL detects the context that is current in the current thread,
@@ -97,12 +98,13 @@ public class Test {
         // the window or has pressed the ESCAPE key.
         
         while ( glfwWindowShouldClose(window) == GLFW_FALSE ) {
+        	pos+=0.01;
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
 
             glBegin(GL_TRIANGLES);
             
-            glColor3f(1.0f,0.0f,1.0f); 
-            glVertex2f( 0.0f, 1.0f);
+            glColor3f(1.0f, 0.0f ,1.0f); 
+            glVertex2f( (float)Math.cos(pos), 1.0f);
             
             glColor3f(0.0f,1.0f,0.0f); 
             glVertex2f(-1.0f,-1.0f); 
@@ -120,6 +122,4 @@ public class Test {
             
         }
     }
-
- 
 }
