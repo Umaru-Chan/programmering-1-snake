@@ -2,11 +2,14 @@
  * Created by Alexander on 3/24/2016.
  */
 import  java.io.*;
+import java.util.HashMap;
+import java.util.Map;
+
 import  sun.audio.*;
 
 public class Foo {
 
-    static AudioStream as;
+    static Map<String, AudioStream> streams = new HashMap<>();
 
     public static void main(String[]args){
         loop();
@@ -19,13 +22,15 @@ public class Foo {
             try{
                 playSound("res/wellcome.wav");
                 Thread.sleep(500);
-                playSound("res/wellcome.wav");
+                playSound("LMAO");
                 Thread.sleep(500);
-                playSound("res/wellcome.wav");
+                playSound("AYY");
                 Thread.sleep(500);
+                playSound("WALLA");
+                Thread.sleep(500);
+                playSound("NEGER");
 
-                stopSound();
-                break;
+                Thread.sleep(15000);
 
             }catch(Exception e){e.printStackTrace();}
         }
@@ -34,12 +39,12 @@ public class Foo {
     static void playSound(String path) throws Exception
     {
         InputStream in = new FileInputStream(path);
-        as = new AudioStream(in);
-        AudioPlayer.player.start(as);
+        streams.put(path, new AudioStream(in));
+        AudioPlayer.player.start(streams.get(path));
     }
 
-    static void stopSound()
+    static void stopSound(String path) throws Exception
     {
-        AudioPlayer.player.stop(as);
+        AudioPlayer.player.stop(streams.get(path));
     }
 }
