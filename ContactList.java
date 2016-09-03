@@ -1,4 +1,3 @@
-import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -10,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -87,9 +87,12 @@ public class ContactList extends JFrame {
 		contentPane.add(addButton);
 		
 		textArea = new JTextArea();
+		JScrollPane scroll = new JScrollPane(textArea);
+		scroll.setBounds(10, 73, 364, 183);
+		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		textArea.setEditable(false);
 		textArea.setBounds(10, 73, 364, 183);
-		contentPane.add(textArea);
+		contentPane.add(scroll);
 		
 		sortFirstName = new JRadioButton("show first name first");
 		sortFirstName.setSelected(true);
@@ -120,8 +123,8 @@ public class ContactList extends JFrame {
 					"information saknas", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
-		if(contacts.size() == MAX_LENGTH){
-			JOptionPane.showMessageDialog(this, "tyvärr så kan du enbart lägga till 100 kontakter",
+		if(contacts.size() >= MAX_LENGTH){
+			JOptionPane.showMessageDialog(this, "tyvärr så kan du enbart lägga till "+MAX_LENGTH+" kontakter",
 					"för många kontakter!!", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
