@@ -29,32 +29,16 @@ public class ContactList extends JFrame {
 	 * starta applikationen.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ContactList frame = new ContactList();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		new ContactList();
 	}
 
 	/**
 	 * skapa fönstret
 	 */
 	public ContactList() {
-		setResizable(false);
-		init();
-	}
-	
-	/**
-	 * skapa och lägg till alla objekt i fönstret
-	 */
-	private void init(){
 		contacts = new ArrayList<>();
 		
+		setResizable(false);
 		setTitle("Skolsak");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 330);
@@ -62,7 +46,14 @@ public class ContactList extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		init();
+		setVisible(true);
+	}
+	
+	/**
+	 * skapa och lägg till alla objekt i fönstret
+	 */
+	private void init(){
 		firstNameIn = new JTextField();
 		firstNameIn.setBounds(83, 11, 86, 20);
 		contentPane.add(firstNameIn);
