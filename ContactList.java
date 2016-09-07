@@ -51,7 +51,7 @@ public class ContactList extends JFrame {
 	}
 	
 	/**
-	 * skapa och lägg till alla objekt i fönstret
+	 *  skapa och lägg till alla objekt i fönstret
 	 */
 	private void init(){
 		firstNameIn = new JTextField();
