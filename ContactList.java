@@ -1,3 +1,4 @@
+import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -41,7 +42,10 @@ public class ContactList extends JFrame {
 		setResizable(false);
 		setTitle("Skolsak");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 400, 330);
+		setPreferredSize(new Dimension(400, 330));
+		setMaximumSize(new Dimension(400, 330));
+		setMinimumSize(new Dimension(400, 330));
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(null);
@@ -57,17 +61,14 @@ public class ContactList extends JFrame {
 		firstNameIn = new JTextField();
 		firstNameIn.setBounds(83, 11, 86, 20);
 		contentPane.add(firstNameIn);
-		firstNameIn.setColumns(10);
 		
 		lastNameIn = new JTextField();
 		lastNameIn.setBounds(248, 11, 86, 20);
 		contentPane.add(lastNameIn);
-		lastNameIn.setColumns(10);
 		
 		numberIn = new JTextField();
 		numberIn.setBounds(83, 42, 86, 20);
 		contentPane.add(numberIn);
-		numberIn.setColumns(10);
 
 		JLabel firstNameLabel = new JLabel("efternamn");
 		firstNameLabel.setBounds(10, 14, 61, 14);
@@ -90,6 +91,7 @@ public class ContactList extends JFrame {
 		JScrollPane scroll = new JScrollPane(textArea);
 		scroll.setBounds(10, 73, 374, 183);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		textArea.setEditable(false);
 		textArea.setBounds(10, 73, 364, 183);
 		contentPane.add(scroll);
