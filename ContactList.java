@@ -44,14 +44,14 @@ public class ContactList extends JFrame {
 		setBounds(100, 100, 400, 330);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		init();
+		setContentPane(contentPane);
 		setVisible(true);
 	}
 	
 	/**
-	 *  skapa och lägg till alla objekt i fönstret
+	 * skapa och lägg till swing alla objekt i fönstret
 	 */
 	private void init(){
 		firstNameIn = new JTextField();
@@ -119,13 +119,13 @@ public class ContactList extends JFrame {
 	 */
 	private void addContact(){
 		if(firstNameIn.getText().isEmpty() || lastNameIn.getText().isEmpty() || numberIn.getText().isEmpty()){
-			JOptionPane.showMessageDialog(this, "du måste fylla i alla fält innan du lägger till en kontakt!!",
+			JOptionPane.showMessageDialog(this, "du måste fylla i alla fält innan du lägger till en ny kontakt!",
 					"information saknas", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		if(contacts.size() >= MAX_LENGTH){
 			JOptionPane.showMessageDialog(this, "tyvärr så kan du enbart lägga till "+MAX_LENGTH+" kontakter",
-					"för många kontakter!!", JOptionPane.ERROR_MESSAGE);
+					"för många kontakter!", JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 		//lägg till den nya kontakten
