@@ -69,11 +69,11 @@ public class ContactList extends JFrame {
 		contentPane.add(numberIn);
 		numberIn.setColumns(10);
 
-		JLabel firstNameLabel = new JLabel("first name");
+		JLabel firstNameLabel = new JLabel("efternamn");
 		firstNameLabel.setBounds(10, 14, 61, 14);
 		contentPane.add(firstNameLabel);
 		
-		JLabel lastNameLabel = new JLabel("last name");
+		JLabel lastNameLabel = new JLabel("förnamn");
 		lastNameLabel.setBounds(179, 14, 59, 14);
 		contentPane.add(lastNameLabel);
 		
@@ -81,22 +81,22 @@ public class ContactList extends JFrame {
 		numberLabel.setBounds(10, 45, 63, 14);
 		contentPane.add(numberLabel);
 		
-		JButton addButton = new JButton("add");
+		JButton addButton = new JButton("lägg till");
 		addButton.setBounds(248, 42, 89, 23);
 		addButton.addActionListener((ae) -> addContact());
 		contentPane.add(addButton);
 		
 		textArea = new JTextArea();
 		JScrollPane scroll = new JScrollPane(textArea);
-		scroll.setBounds(10, 73, 364, 183);
+		scroll.setBounds(10, 73, 374, 183);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		textArea.setEditable(false);
 		textArea.setBounds(10, 73, 364, 183);
 		contentPane.add(scroll);
 		
-		sortFirstName = new JRadioButton("show first name first");
+		sortFirstName = new JRadioButton("sortera efter förnamn");
 		sortFirstName.setSelected(true);
-		sortFirstName.setBounds(25, 263, 144, 23);
+		sortFirstName.setBounds(20, 263, 179, 23);
 		sortFirstName.addActionListener((ae) -> {
 			sortLastName.setSelected(!sortLastName.isSelected());
 			sort();
@@ -104,8 +104,8 @@ public class ContactList extends JFrame {
 		});
 		contentPane.add(sortFirstName);
 		
-		sortLastName = new JRadioButton("show last name firtst");
-		sortLastName.setBounds(179, 263, 168, 23);
+		sortLastName = new JRadioButton("sortera efter efternamn");
+		sortLastName.setBounds(206, 263, 168, 23);
 		sortLastName.addActionListener((ae) -> {
 			sortFirstName.setSelected(!sortFirstName.isSelected());
 			sort();
