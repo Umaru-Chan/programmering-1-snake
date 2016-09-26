@@ -1,0 +1,68 @@
+package se.gafw.gafw.input;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+/**
+ * Created by Alexander on 9/26/2016.
+ */
+public class SlutaMedAttInteForsta extends Canvas{
+
+    private JFrame frame;
+    private BufferedImage image;
+
+    public SlutaMedAttInteForsta(){
+        frame = new JFrame("ffs");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.add(this);
+        super.setSize(new Dimension(900, 600));
+        frame.add(this);
+        frame.pack();
+        frame.setVisible(true);
+        loop();
+    }
+
+    private void loop(){
+        //ignorera
+        createBufferStrategy(2);
+        //ignorera
+        requestFocus();
+        //fuck yea
+        image = loadImage("badlogic.jpg");
+        //hell yea
+        while(true){
+            render();
+            //TODO logik och skit
+            //TODO sleeptime
+            //TODO tömma minnet innan man stänger ner applikationen
+        }
+    }
+
+    private void render(){
+        BufferStrategy bs = this.getBufferStrategy();
+        Graphics g = bs.getDrawGraphics();
+
+        g.drawImage(image, 150, 150, frame);
+
+        g.dispose();
+        bs.show();
+    }
+
+    private BufferedImage loadImage(String path){
+        try{
+            return ImageIO.read(getClass().getResourceAsStream(path));
+        }catch (IOException e){
+            System.err.println("NEGER NÅGOT FUNKADE INTE !! "+e.getMessage());
+            return null;
+        }
+    }
+
+    public static void main(String[]args){
+        new SlutaMedAttInteForsta();
+    }
+}
